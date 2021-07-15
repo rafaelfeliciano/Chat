@@ -7,7 +7,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 // Hooks
-import { useAuthState, useDarkMode } from './hooks';
+import { useAuthState} from './hooks';
 // Components
 import Channel from './components/Channel';
 import Loader from './components/Loader';
@@ -24,26 +24,14 @@ firebase.initializeApp( {
 );
 
 
-const SunIcon = props => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-    {...props}
-  >
-    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-  </svg>
-);
+
 
 function App() {
   const { user, initializing } = useAuthState(firebase.auth());
-  const [darkMode, setDarkMode] = useDarkMode();
 
-  const brandLogo = darkMode
-    ? `${process.env.PUBLIC_URL}/logo_white.svg`
-    : `${process.env.PUBLIC_URL}/logo.svg`;
 
-  const ThemeIcon = darkMode;
+ 
+
 
   const signInWithGoogle = async () => {
     // Retrieve Google provider object
